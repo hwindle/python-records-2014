@@ -1,0 +1,107 @@
+/* navy blue  reports theme */
+
+/*
+white background		
+darker grey headings		rgb(41, 42, 45)
+navy field header		#002530; 
+white alt row colour.		rgb(255,255,255)
+fluffy light grey alt row col	rgb(200,200,200)
+light blue borders		rgb(135,206,235) 
+
+*/
+@font-face {
+    font-family: 'body-italic';
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_italic_macroman/OpenSans-Italic-webfont.eot');
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_italic_macroman/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_italic_macroman/OpenSans-Italic-webfont.woff') format('woff'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_italic_macroman/OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_italic_macroman/OpenSans-Italic-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'body';
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'body-bold';
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot');
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.woff') format('woff'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'headings';
+    src: url('fonts/roboto-fontfacekit/roboto_bolditalic_macroman/Roboto-BoldItalic-webfont.eot');
+    src: url('fonts/roboto-fontfacekit/roboto_bolditalic_macroman/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-fontfacekit/roboto_bolditalic_macroman/Roboto-BoldItalic-webfont.woff') format('woff'),
+         url('fonts/roboto-fontfacekit/roboto_bolditalic_macroman/Roboto-BoldItalic-webfont.ttf') format('truetype'),
+         url('fonts/roboto-fontfacekit/roboto_bolditalic_macroman/Roboto-BoldItalic-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* end of fonts */
+* { 
+	color: rgb(41, 42, 45); 
+	font-family: body, 'open sans', cantarell, arial, sans-serif; 
+	font-size: 100%; 
+	margin: 0; padding: 0; 
+}
+body { background: white; }
+h1,h2,h3,h4,h5,h6, th { 
+	text-align: center; 
+	font-family: body-bold, roboto, 'open sans', cantarell, arial, sans-serif;
+        font-weight: normal; 
+}
+h1 { 
+	font-size: 2em; 
+	/* text-shadow: 1px 1px 1px #555, 
+				-1px -1px 1px white,
+				-1px -1px 1px #555;  
+	*/
+}
+h2 { font-size: 1.8em;  }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+
+table { 
+	width: 80%;
+	margin: 18px auto;
+	padding: .8em;
+	background-color: rgb(200, 200, 200); 
+        border: 2px solid rgb(135,206,235); 
+	border-radius: 40px;
+	box-shadow: 1px 1px 7px #333, 
+                    1px 1px 5px rgb(135, 206, 235); 
+	border-collapse: seperate; 
+}
+th {
+	text-align: left;
+        font-family: headings;
+	padding: 6px 10px;
+	background-color: #407095;
+	color: #fff;
+}
+p, td  {
+	padding: 0.4em 1em;
+	background-color: rgb(255, 255, 255);
+	
+}
+tr:nth-child(even) td {
+	background-color: rgb(200,200,200);
+        box-shadow: 1px 1px 7px rgb(200,200,200),
+                    -1px -1px  7px rgb(200,200,200);
+}
+
+em { font-family: body-italic; font-style: normal; }
+

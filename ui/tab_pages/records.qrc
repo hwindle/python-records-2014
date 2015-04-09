@@ -1,0 +1,69 @@
+<!DOCTYPE RCC><RCC version="1.0">
+  <qresource prefix="/">
+    <file>images/win/add_sign.png</file>
+    <file>images/win/edit_content.png</file>
+    <file>images/win/add_sign.png</file>
+    <file>images/win/delete_128x128.png</file>
+    <file>images/win/close_file_128x128.png</file>
+    <file>images/win/find_128x128.png</file>
+    <file>images/win/warning_128x128.png</file>
+    <file>images/win/info_128x128.png</file>
+    <file>images/win/indent_less_128x128.png</file>
+    <file>images/win/indent_more_128x128.png</file>
+    <file>images/nimbus-logo_256.png</file>
+    <file>images/win/editcopy.png</file>
+    <file>images/win/add_column_128x128.png</file>
+    <file>images/win/add_image_128x128.png</file>
+    <file>images/win/add_table_128x128.png</file>
+    <file>images/win/border_all_128x128.png</file>
+    <file>images/win/border_bottom_128x128.png</file>
+    <file>images/win/border_left_128x128.png</file>
+    <file>images/win/border_middle_128x128.png</file>
+    <file>images/win/border_right_128x128.png</file>
+    <file>images/win/border_round_all_128x128.png</file>
+    <file>images/win/border_top_128x128.png</file>
+    <file>images/win/bullet_list_128x128.png</file>
+    <file>images/win/colour_background_128x128.png</file>
+    <file>images/win/colour_highlight_128x128.png</file>
+    <file>images/win/colour_text_128x128.png</file>
+    <file>images/win/colour_picker_128x128.png</file>
+    <file>images/win/delete_column_128x128.png</file>
+    <file>images/win/delete_row_128x128.png</file>
+    <file>images/win/number_list_128x128.png</file>
+    <file>images/win/insert_spec_char_128x128.png</file>
+    <file>images/win/dictionary_128x128.png</file>
+    <file>images/win/zoom_orig_128x128.png</file>
+    <file>images/win/superscript_128x128.png</file>
+    <file>images/win/subscript_128x128.png</file>
+    <file>images/win/strikethrough_128x128.png</file>
+    <file>images/win/spell_check_128x128.png</file>
+    <file>images/win/save_all_128x128.png</file>
+    <file>images/win/editcut.png</file>
+    <file>images/win/editpaste.png</file>
+    <file>images/win/editredo.png</file>
+    <file>images/win/editundo.png</file>
+    <file>images/win/exportpdf.png</file>
+    <file>images/win/filenew.png</file>
+    <file>images/win/fileopen.png</file>
+    <file>images/win/fileprint.png</file>
+    <file>images/win/filesave.png</file>
+    <file>images/win/textbold.png</file>
+    <file>images/win/textcenter.png</file>
+    <file>images/win/textitalic.png</file>
+    <file>images/win/textjustify.png</file>
+    <file>images/win/textleft.png</file>
+    <file>images/win/textright.png</file>
+    <file>images/win/textunder.png</file>
+    <file>images/win/zoomin.png</file>
+    <file>images/win/zoomout.png</file>
+    <file alias="history.png">images/history.png</file>
+    <file alias="zoomin.png">images/zoomin.png</file>
+    <file alias="zoomout.png">images/zoomout.png</file>
+    <file alias="seturl.png">images/seturl.png</file>
+    <file>images/win/firstrecord_128x128.png</file>
+    <file>images/win/lastrecord_128x128.png</file>
+    <file>images/win/prevrecord_128x128.png</file>
+    <file>images/win/nextrecord_128x128.png</file>
+    <file>images/win/records.png</file>
+  </qresource>
+</RCC>

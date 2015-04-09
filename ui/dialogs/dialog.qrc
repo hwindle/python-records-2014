@@ -1,0 +1,13 @@
+<!DOCTYPE RCC><RCC version="1.0">
+  <qresource prefix="/">
+    <file>images/01_grey_brown.png</file>
+    <file>images/02_large_bw.png</file>
+    <file>images/03_navy_steel_blue.png</file>
+    <file>images/04_sans_blue.png</file>
+    <file>images/05_warm_yellows.png</file>
+    <file>images/exportpdf.png</file>
+    <file>images/fileprint.png</file>
+    <file>images/ascending_256.png</file>
+    <file>images/descending_256.png</file>
+  </qresource>
+</RCC>

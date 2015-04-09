@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>createTable</class>
+ <widget class="QDialog" name="createTable">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>860</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Records - Create Table</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>600</y>
+     <width>391</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="moreButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>600</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Advanced &gt;&gt;</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>10</y>
+     <width>392</width>
+     <height>621</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>28</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>390</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="nullTab">
+       <attribute name="title">
+        <string>&amp;Data Options</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>21</y>
+          <width>361</width>
+          <height>471</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0" colspan="2">
+          <widget class="QCheckBox" name="nullCheckBox">
+           <property name="text">
+            <string>A value in this field is required. (NOT NULL)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLineEdit" name="defaultLineEdit">
+             <property name="placeholderText">
+              <string>Default value</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>will be entered into this field automatically.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="0">
+          <widget class="QSpinBox" name="minSpinBox">
+           <property name="minimum">
+            <number>-999999999</number>
+           </property>
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_13">
+           <property name="text">
+            <string>is the minimum value.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QSpinBox" name="maxSpinBox">
+           <property name="maximum">
+            <number>999999999</number>
+           </property>
+           <property name="value">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>is the maximum value.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="validationTab">
+       <attribute name="title">
+        <string>&amp;Validation</string>
+       </attribute>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>351</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Only allow the following formats of data to be included in this field.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="validList">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>361</width>
+          <height>451</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="listTab">
+       <attribute name="title">
+        <string>Value &amp;List</string>
+       </attribute>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>361</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Create a drop down menu of choices to choose from, for data such as the days of the week or place names.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="enumList">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>371</width>
+          <height>451</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>31</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>230</y>
+     <width>53</width>
+     <height>98</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QToolButton" name="addColumnBtn">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Add a field after the existing columns.</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton { color: rgb(0, 170, 0); }</string>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QToolButton" name="delColumnBtn">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>45</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Remove a field - will remove data in this column!</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton { color: rgb(188, 0, 0); }</string>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>40</y>
+     <width>401</width>
+     <height>551</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>&lt;h3&gt;Field Name&lt;/h3&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>&lt;h3&gt;Data Type&lt;/h3&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>397</width>
+         <height>523</height>
+        </rect>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>371</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="label1">
+             <property name="text">
+              <string>1.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName1</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName1"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType1">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>2.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName2</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName2"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType2">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>3.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName3</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName3"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType3">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>4.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName4</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName4"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType4">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>5.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName5</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName5"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType5">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>6.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName6</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName6"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType6">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>7.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName7</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName7"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType7">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>8.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName8</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName8"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType8">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>9.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName9</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName9"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType9">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>10.</string>
+             </property>
+             <property name="buddy">
+              <cstring>fieldName10</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="fieldName10"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="fieldDataType10">
+             <item>
+              <property name="text">
+               <string>text</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>decimal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>whole number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>long number</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>notes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>timestamp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>date time</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>True or False</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Data blob</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>primary key</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>foreign key</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>10</y>
+     <width>341</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_12">
+    <item>
+     <widget class="QLabel" name="label_17">
+      <property name="font">
+       <font>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;h2&gt;Table Name:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+      </property>
+      <property name="buddy">
+       <cstring>lineEdit</cstring>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>frame</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>buttonBox</zorder>
+  <zorder>moreButton</zorder>
+  <zorder>layoutWidget</zorder>
+ </widget>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>fieldName1</tabstop>
+  <tabstop>fieldDataType1</tabstop>
+  <tabstop>fieldName2</tabstop>
+  <tabstop>fieldDataType2</tabstop>
+  <tabstop>fieldName3</tabstop>
+  <tabstop>fieldDataType3</tabstop>
+  <tabstop>fieldName4</tabstop>
+  <tabstop>fieldDataType4</tabstop>
+  <tabstop>fieldName5</tabstop>
+  <tabstop>fieldDataType5</tabstop>
+  <tabstop>fieldName6</tabstop>
+  <tabstop>fieldDataType6</tabstop>
+  <tabstop>fieldName7</tabstop>
+  <tabstop>fieldDataType7</tabstop>
+  <tabstop>fieldName8</tabstop>
+  <tabstop>fieldDataType8</tabstop>
+  <tabstop>fieldName9</tabstop>
+  <tabstop>fieldDataType9</tabstop>
+  <tabstop>fieldName10</tabstop>
+  <tabstop>fieldDataType10</tabstop>
+  <tabstop>buttonBox</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>enumList</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>addColumnBtn</tabstop>
+  <tabstop>delColumnBtn</tabstop>
+  <tabstop>nullCheckBox</tabstop>
+  <tabstop>defaultLineEdit</tabstop>
+  <tabstop>minSpinBox</tabstop>
+  <tabstop>maxSpinBox</tabstop>
+  <tabstop>validList</tabstop>
+  <tabstop>moreButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>createTable</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>600</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>createTable</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>600</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>moreButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>65</x>
+     <y>616</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>478</x>
+     <y>593</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

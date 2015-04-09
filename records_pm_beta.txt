@@ -1,0 +1,17 @@
+﻿Records beta 0.9
+
+1. Validation for form widgets
+2. Create validation pattern for input widgets.
+3. Enum lists for form widgets.
+4. Create own enum lists for form widgets.
+5. Relations dialog mockup.
+6. Create relations dialog.
+7. Get data from relations.
+8. CRUD made safe for relational DBs.
+9. Check many different relational databases, fix bugs.
+10. Fancier reports with charts and Python maths functions.
+11. Right click menu in tableview and form view over data, with web lookup.
+
+
+
+

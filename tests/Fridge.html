@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Database Report</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+<style type='text/css'>
+/* sans blue reports theme */
+/*
+light blue alt. field colour rgba(127, 181, 227, 1.0)
+darkish blue heading bar.  rgba(13, 96, 166, 0.8)
+white, dark grey text.	#232;
+*/
+@font-face {
+    font-family: 'large-heading';
+    src: url('fonts/overpass-fontfacekit/web fonts/overpass_regular_macroman/Overpass_Regular-webfont.eot');
+    src: url('fonts/overpass-fontfacekit/web fonts/overpass_regular_macroman/Overpass_Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/overpass-fontfacekit/web fonts/overpass_regular_macroman/Overpass_Regular-webfont.woff') format('woff'),
+         url('fonts/overpass-fontfacekit/web fonts/overpass_regular_macroman/Overpass_Regular-webfont.ttf') format('truetype'),
+         url('fonts/overpass-fontfacekit/web fonts/overpass_regular_macroman/Overpass_Regular-webfont.svg#overpassregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'body';
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_regular_macroman/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'body-bold';
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot');
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.woff') format('woff'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_bold_macroman/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'body-italic';
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_lightitalic_macroman/OpenSans-LightItalic-webfont.eot');
+    src: url('fonts/open-sans-fontfacekit/web fonts/opensans_lightitalic_macroman/OpenSans-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_lightitalic_macroman/OpenSans-LightItalic-webfont.woff') format('woff'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_lightitalic_macroman/OpenSans-LightItalic-webfont.ttf') format('truetype'),
+         url('fonts/open-sans-fontfacekit/web fonts/opensans_lightitalic_macroman/OpenSans-LightItalic-webfont.svg#open_sanslight_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* end of fonts */
+* { color: #232; background: white;
+	margin: 0; padding: 0; 
+	font-family: body, 'open sans', sans-serif; 
+        font-size: 16px; 
+}
+h1, h2 { text-align: center; font-family: large-heading; }
+h3,h4,h5,h6, th { 
+	text-align: center; 
+	font-family: body, 'open sans', sans-serif;
+        font-weight: bold; 
+}
+h1 { 
+	font-size: 2em; 
+	padding: 0.2em;
+	color: #666;
+}
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+
+table, .record { 
+	width: 75%;
+	margin: 14px auto;
+	padding: 0.4em;
+	background: rgba(127, 181, 227, 1.0); 
+	border: 1px solid rgb(13, 96, 166);
+	box-shadow: 1px 1px 3px rgba(13, 96, 166, 0.8),
+				-1px -1px 3px rgba(13, 96, 166, 0.8);
+	border-collapse: collapse;
+}
+th {
+	padding: 3px 6px;
+	background: rgba(13, 96, 166, 0.8);
+	color: #ddd;
+}
+p, td, .field {
+	padding: 0.4em 1em;
+	
+}
+tr:nth-child(even) td {
+	background-color: rgba(127, 181, 227, 1.0);
+	color: black;
+}
+
+#2nd_rep { }
+.lead-data { font-family: body-bold; }
+.2lead-data { font-size: 120%; font-family: body-italic; }
+em { font-family: body; 
+	text-shadow: -1px 1px 1px #232;
+	font-style: normal; 
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>food</h1>
+</header>
+<table>
+<thead><th>item</th>
+<th>quantity</th>
+<th>use_by</th>
+<th></th>
+
+</thead>
+<tbody>
+<tr>
+<td>crispbread</td><td>10</td><td>10-10-2014</td>
+</tr>
+<tr>
+<td>Plums</td><td>8</td><td>01-03-2015</td>
+</tr>
+<tr>
+<td>Heinz beans</td><td>7</td><td>01-01-2016</td>
+</tr>
+<tr>
+<td>Daddies tomato sauce</td><td>500g</td><td>01-01-2016</td>
+</tr>
+<tr>
+<td>bread yeast</td><td>6 sachets</td><td>20160101</td>
+</tr>
+<tr>
+<td>tomato sauce</td><td>300g</td><td>20160101</td>
+</tr>
+<tr>
+<td>worcestshire sauce</td><td>300g</td><td>20160101</td>
+</tr>
+<tr>
+<td>porridge oats</td><td>1kg</td><td>20160101</td>
+</tr>
+<tr>
+<td>clear honey</td><td>500g</td><td>20160101</td>
+</tr>
+<tr>
+<td>chicken stock</td><td>4 cubes</td><td>20150101</td>
+</tr>
+<tr>
+<td>mushroom stock</td><td>6 cubes</td><td>20150101</td>
+</tr>
+<tr>
+<td>pearl barley</td><td>300g</td><td>20150101</td>
+</tr>
+<tr>
+<td>spelt flour</td><td>2100g</td><td>20150101</td>
+</tr>
+<tr>
+<td>plain flour</td><td>2kg</td><td>20150101</td>
+</tr>
+<tr>
+<td>buckwheat</td><td>500g</td><td>20150101</td>
+</tr>
+<tr>
+<td>marmite</td><td>100g</td><td>20150101</td>
+</tr>
+<tr>
+<td>dairy free margarine</td><td>200g</td><td>20150101</td>
+</tr>
+<tr>
+<td>rice</td><td>500g</td><td>20150101</td>
+</tr>
+<tr>
+<td>pasta</td><td>500g</td><td>20150101</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

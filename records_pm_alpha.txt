@@ -1,0 +1,33 @@
+﻿1. Seperate SELECt statements from the table view tab. DONE
+2. Export CSV from any SQL select statement, defaults to all of the selected table.  DONE
+3. 
+4. Reports
+5. Pure Python reports generator from exported CSV DONE
+6. Reports CSS and Javascript.
+	a) CSS theme chooser in Python
+11. Reports HTML viewer tab.
+7. New Report dialog design.
+8. Implement Reports logic.
+9. Create reports change report theme dialog.
+10. Finish and test reports logic.
+
+Finish Edit table sub class.
+12. Enable sorting in table view.
+13. Create form view for data, in ui/widgets or tabs.
+14. 	Refactor form view GUI with fake table info.
+15. 	Connect tableinfo and MainWindow with form view tab.
+16. 	Do back/next/first/last functions.
+17. 	Do a form options dialog with simple validation for URIs only.
+18. 	Save forms to Records settings, with table or view name.
+19. 	Do a read-only form setting.
+20. Quick search with seperate SQL.
+21. Query tab mockup
+22. Query tab GUI design
+23. Query tab logic.
+
+24. Save query to a view function.
+25.  Export CSV options box for a query view or whole table/choice of delimeters.
+26. Import CSV into a table function.
+27.  Right click menu, cut copy paste.
+28.  Options dialog boxes, with alpha notices.
+

@@ -1,0 +1,16 @@
+Records Tests - Sample Data
+
+2. Using Records GUI - Sample music database of CD's I want off Amazon. (key),
+artist, album, genre, year, price
+
+6. CSV tab file 'wishlist': Item, Price, Quantity, Brought Y/N, Description,
+Category (either furniture, books, films, games, electronics, textiles,
+ornaments) Store (URL)
+At least 50-100 rows.
+
+8. Reports - a number heavy table with calculated fields - an income statement
+for example.
+
+14. Import CSV - any CSV file with tabular data, say from open.gov in the UK
+or something.
+

@@ -1,0 +1,47 @@
+Records - User Stories
+
+1. I want to be able to name a database.
+
+2. I would like other people to read my data files if they don't have Records.
+
+3. I would like a choice of ready made custom field types that check my data is right.
+
+4. * I should be able to add a custom data type.
+
+5. I should be able to easily add list values (e.g. yes/no, colours) as a field.
+
+6. When entering data into a new table I want to be taken to a simple form input screen first.
+   a - There should be an add records button for adding new data.
+   b - There should be a remove records button for deleting the current row in
+    the form.
+
+7. I would like to view and sort data in a spreadsheet style view.
+
+8. In spreadsheet view, right clicking should bring up a menu with delete row in
+it
+
+9. I would like a HTML report with cute graphs, if I opt to include graphs. This should be separate from the database file.
+   a. I would like the option to add all the numbers or do numeric things with
+   columns for reports (collated reports).
+
+10. I would like searches to be simple for basic searches, like using 'find' in a
+word processor.
+
+11. I would also like to be able to search by regex in a user friendly way, even across multiple fields.
+
+12. * I would like the option of using MySQL/MariaDB/Postgresql/MsSQL
+
+13. I would like to be able to select a portion of data and search for that via Google/Duckduckgo, by right clicking.
+
+14. I would like to import CSV.
+
+15. I would like to export CSV.
+
+====================================================
+Next release cycle
+
+16. * I would like to build a PHP web form for data collection, outputting a remote .sql file.
+   a - I would like to use Bootstrap / Nimbus style themes for the forms.
+
+-------------------------------------------------
+(*) = later (beta) features

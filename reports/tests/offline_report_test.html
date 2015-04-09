@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Database Report</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+<style type='text/css'>
+/* warm yellows reports theme */
+
+/*
+off red h1, h2 headings		rgb(200, 85, 40)
+orange/ochre record bg and headings bar.	rgb(210, 142, 34)
+cadium yellow alt row colour.		rgb(241,197,77)
+off white/yellow field colour.	rgb(248,231,185)
+*/
+@font-face {
+    font-family: 'body-italic';
+    src: url('fonts/playfair/playfairdisplay-italic-webfont.eot');
+    src: url('fonts/playfair/playfairdisplay-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/playfair/playfairdisplay-italic-webfont.woff2') format('woff2'),
+         url('fonts/playfair/playfairdisplay-italic-webfont.woff') format('woff'),
+         url('fonts/playfair/playfairdisplay-italic-webfont.ttf') format('truetype'),
+         url('fonts/playfair/playfairdisplay-italic-webfont.svg#playfair_displayitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'body';
+    src: url('fonts/playfair/playfairdisplay-regular-webfont.eot');
+    src: url('fonts/playfair/playfairdisplay-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/playfair/playfairdisplay-regular-webfont.woff2') format('woff2'),
+         url('fonts/playfair/playfairdisplay-regular-webfont.woff') format('woff'),
+         url('fonts/playfair/playfairdisplay-regular-webfont.ttf') format('truetype'),
+         url('fonts/playfair/playfairdisplay-regular-webfont.svg#playfair_displayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'body-bold';
+    src: url('fonts/playfair/playfairdisplay-bold-webfont.eot');
+    src: url('fonts/playfair/playfairdisplay-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/playfair/playfairdisplay-bold-webfont.woff2') format('woff2'),
+         url('fonts/playfair/playfairdisplay-bold-webfont.woff') format('woff'),
+         url('fonts/playfair/playfairdisplay-bold-webfont.ttf') format('truetype'),
+         url('fonts/playfair/playfairdisplay-bold-webfont.svg#playfair_displaybold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'headings';
+    src: url('fonts/ubuntu-webfontkit/ubuntu-b-webfont.eot');
+    src: url('fonts/ubuntu-webfontkit/ubuntu-b-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ubuntu-webfontkit/ubuntu-b-webfont.woff2') format('woff2'),
+         url('fonts/ubuntu-webfontkit/ubuntu-b-webfont.woff') format('woff'),
+         url('fonts/ubuntu-webfontkit/ubuntu-b-webfont.ttf') format('truetype'),
+         url('fonts/ubuntu-webfontkit/ubuntu-b-webfont.svg#ubuntubold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* end of fonts */
+* { 
+	color: #1c1c1c; 
+	font-family: body; 
+	font-size: 100%; 
+	margin: 0; padding: 0; 
+}
+h1,h2,h3,h4,h5,h6, th { 
+	text-align: center; 
+	font-family: headings; 
+}
+h1 { 
+	font-size: 2em; 
+	/* text-shadow: 1px 1px 1px #555, 
+				-1px -1px 1px white,
+				-1px -1px 1px #555;  */
+	color: rgb(200, 85, 40);
+}
+h2 { font-size: 1.8em; color: rgb(200, 85, 40); }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+
+table, .record { 
+	width: 80%;
+	margin: 18px auto;
+	padding: 0.2em;
+	background: rgb(210, 142, 34); 
+	border-radius: 15px;
+	box-shadow: 1px 1px 8px rgb(210, 142, 34);
+	border-collapse: collapse;
+}
+th {
+	padding: 6px 10px;
+	background: rgb(210, 142, 34);
+	color: #fff;
+}
+p, td, .field {
+	padding: 0.4em 1em;
+	background-color: rgb(248, 231, 185);
+    /* border: 1px solid #444; */
+	border-radius: 0px;
+}
+tr:nth-child(even) td {
+	background-color: rgb(241,197,77);
+}
+
+#2nd_rep { }
+.lead-data { font-family: body; }
+.2lead-data { font-size: 120%; font-family: body-bold; }
+em { font-family: body-italic; font-style: normal; }</style>
+<script type='text/JavaScript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
+<script type='text/javascript' src='http://d3js.org/d3.v3.min.js' charset='utf-8'></script>
+
+<script type='text/javascript'>
+
+</script>
+
+</head>
+<body>
+
+<header>
+<h1>Several Items Test</h1>
+</header>
+<table>
+<thead><th>id</th>
+<th>Item</th>
+<th>Store</th>
+<th>Colour</th>
+<th>Category</th>
+<th>Price</th>
+
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>Intel I7</td><td>Amazon</td><td></td><td>IT</td><td>246.90</td>
+</tr>
+<tr>
+<td>2</td><td>32GB DDR3 1866mhz RAM</td><td>Amazon</td><td>red</td><td>IT</td><td>200.00</td>
+</tr>
+<tr>
+<td>3</td><td>Asus socket 1150 motherboard</td><td>Amazon</td><td>green</td><td>IT</td><td>80.00</td>
+</tr>
+<tr>
+<td>4</td><td>water cooling kit Coolermaster</td><td>Amazon</td><td></td><td>IT</td><td>123.86</td>
+</tr>
+<tr>
+<td>5</td><td>SanDisk extreme SSD 256GB</td><td>Amazon</td><td></td><td>IT</td><td>105.86</td>
+</tr>
+<tr>
+<td>6</td><td>Western Digital 2TB HDD</td><td>Amazon</td><td>silver</td><td>IT</td><td>75.96</td>
+</tr>
+<tr>
+<td>7</td><td>Samsung blu-ray drive</td><td>Amazon</td><td>black</td><td>IT</td><td>60.00</td>
+</tr>
+<tr>
+<td>8</td><td>Antec modular 800w PSU</td><td>Amazon</td><td>black</td><td>IT</td><td>100.00</td>
+</tr>
+<tr>
+<td>9</td><td>3.5 IcyBox card reader</td><td>Amazon</td><td>black</td><td>IT</td><td>30.00</td>
+</tr>
+<tr>
+<td>10</td><td>Coolermaster black ATX case</td><td>Amazon</td><td>black</td><td>IT</td><td>40.00</td>
+</tr>
+<tr>
+<td>11</td><td>AMD 7900 graphics card</td><td>Amazon</td><td></td><td>IT</td><td>100.00</td>
+</tr>
+<tr>
+<td>12</td><td>Antec fan controller 5.25"</td><td>Amazon</td><td>black</td><td>IT</td><td>25.99</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
