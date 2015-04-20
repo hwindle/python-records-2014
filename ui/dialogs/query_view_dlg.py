@@ -34,7 +34,7 @@ from PyQt4.QtGui import *
 from PyQt4.QtSql import *
 sys.path.append("../../sql")
 from sql import utils, select
-import ui_add_comparison, ui_query_view
+from ui.dialogs import ui_add_comparison, ui_query_view
 
 
 class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
@@ -43,8 +43,8 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
         """
 
         """
-        super(SearchDlg, self).__init__(parent)
-        self.setupUi()
+        super(QueryViewDlg, self).__init__(parent)
+        self.setupUi(self)
 
         self.dbutils = utils.SQLutils()
         self.tableList = self.dbutils.get_tables()
@@ -52,7 +52,8 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
         # self.newQueryBtn # radiobutton (isChecked())
         self.viewName = cleanSearchTerm(self.newQueryName.text())
         # self.editQueryBtn # radiobutton (isChecked())
-        self.currentViewsList.addItems(self.queryList)
+        for item in self.queryList:
+            self.currentViewsList.addItem(item)
         # self.typeListWidget # for different pre built queries like duplicate rows.
         self.connect(self.typeListWidget, SIGNAL("activated(int)"), self.presetQueries)
         # self.descrLabelTab1 # description at bottom
@@ -250,7 +251,7 @@ class AddCompDialog(QDialog, ui_add_comparison.Ui_Dialog):
 
         """
         super(AddCompDialog, self).__init__(parent)
-        self.setupUi()
+        self.setupUi(self)
         self.setWindowTitle("Records - Add another Term")
         # self.compareCombo self.tableCombo self.fieldCombo self.andButton self.orButton
         # self.valueLineEdit
