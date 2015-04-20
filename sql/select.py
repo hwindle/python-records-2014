@@ -69,7 +69,7 @@ def select_query(table, full_sql=None, search_sql=None, ordering=None, joins=Non
 def create_view(viewname, full_sql):
     sql = "CREATE VIEW " + viewname + " AS " + full_sql
     query = QSqlQuery()
-    if query.exec_(statement):
+    if query.exec_(sql):
         searchView = "SELECT * FROM " + viewname   
         results = select_query(viewname, searchView)
         return results

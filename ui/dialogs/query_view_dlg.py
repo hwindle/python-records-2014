@@ -50,7 +50,7 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
         self.tableList = self.dbutils.get_tables()
         self.queryList = self.dbutils.get_views()
         # self.newQueryBtn # radiobutton (isChecked())
-        self.viewName = self.cleanSearchTerm(self.newQueryName.text())
+        self.viewName = cleanSearchTerm(self.newQueryName.text())
         # self.editQueryBtn # radiobutton (isChecked())
         self.currentViewsList.addItems(self.queryList)
         # self.typeListWidget # for different pre built queries like duplicate rows.
@@ -66,13 +66,16 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
         self.compareList = ["Contains text", "Equals", "Less than", "Less than or equal", "Greater than", "Greater than or equal"]
 
         self.compareListTab2.addItems(self.compareList)
-        self.extraSql = []
+        #self.extraSql = []
         self.fields = []
         self.sortfields = []
         self.tables = []
-        self.comparison = ""
+        #self.comparison = ""
+        # for fetchData method...
+        self.sqltables = []
+        self.sqlwheres = []
         # self.addCondBtn # calls other smaller dialog class
-        self.term1 = self.cleanSearchTerm( self.value1LineEdit.text())
+        self.term1 = cleanSearchTerm( self.value1LineEdit.text())
         # self.searchText # QTextBrowser, self.descrLabelTab2
         self.availFieldsList.addItems(self.fieldList)
         # self.addFieldBtn  self.delFieldBtn self.clearFieldsBtn
@@ -83,11 +86,10 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
         # self.sortedFieldsList # fields added here ascBtn and sorted, ascending default 
         self.connect(self.ascBtn, SIGNAL("clicked()"), self.ascFieldSort)
         self.connect(self.desBtn, SIGNAL("clicked()"), self.desFieldSort)
-        # self.descrLabelTab3
         self.connect(self.tableCombo, SIGNAL("activated(int)"), self.updateFields)
         self.connect(self.tableSortCombo, SIGNAL("activated(int)"), self.updateSortFields)
         self.connect(self.fieldsListTab2, SIGNAL("activated(int)"), self.getField)
-        self.connect(self.sortedFieldsList, SIGNAL("activated(int)"), self.getSortField)
+        #self.connect(self.sortedFieldsList, SIGNAL("activated(int)"), self.getSortField)
         self.connect(self.compareListTab2, SIGNAL("activated(int)"), self.getComparison)
         self.connect(self.addCondBtn, SIGNAL("clicked()"),  self.add_other_term)
         self.updateFields()
@@ -99,9 +101,7 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
         """
 
         """
-        
-        self.compareList = ["Contains text", "Equals", "Less than", "Less than or equal", "Greater than", "Greater than or equal"]
-        # fetch, clean viewname
+        # self.viewName
         # compare if structure
         if "Contains text" in self.comparison:
             compare = " LIKE "
@@ -115,21 +115,39 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
             compare = " > "
         elif self.comparison == "Greater than or equal":
             compare = " >= "
-        sqltables = []
-        sqltables.append(1st - nth tablename)
+        self.sqltables.append(self.tablename)
         sqlfields = [] # later on use in two table queries
         sqltables = list(set(sqltables)) # remove duplicates
         # self.tablename, self.field[0], self.sortfields[0], self.comparison, self.term1
+        cols = " "
         for table in sqltables:
-            cols = " "
             tmpfields = self.dbutils.get_fieldnames(table)
             for field in tmpfields:
                 cols += table + "." + field + ", "
         columns = cols[:-2] + " "
-        # sqlwheres.append("(if not 1st one: AND|OR) + field + compare + term")
-        # sqlsorts.append("field + sort")
-        
-        wholeSql = "SELECT " + columns + " FROM " + self.tablename + " WHERE " + sqlwheres[0] + sqlsorts[0]
+        cleanTerm = cleanSearchTerm(self.term1, type_="sqlstring")
+        tmpwhere = self.field[-1] + compare + cleanTerm
+        self.sqlwheres.append(tmpwhere)
+        self.sqlsorts = []
+        # ORDER BY tablename.col1 ASC, tablename.col2 DESC
+        for sort in self.sortfields:
+            if "(A - Z)" in sort:
+                tmpSortField = str(sort[:-7].strip())
+                tmpSortField += " ASC,"
+            else:
+                tmpSortField = str(sort[:-7].strip())
+                tmpSortField += " DESC," 
+            self.sqlsorts.append(tmpSortField)
+        wholeSql = "SELECT " + columns + " FROM " + self.tablename + " WHERE " # + sqlwheres[0] + sqlsorts[0]
+        for string in sqlwheres:
+            wholeSql += string + ", "
+        wholeSql += wholeSql[:-1]
+        if self.sqlsorts:
+            wholeSql += " ORDER BY "
+        for string in self.sqlsorts:
+            wholeSql += string 
+        wholeSql += wholeSql[:-1]
+        print(wholeSql)
         # CREATE VIEW v AS SELECT qty, price, qty*price AS value FROM t; # read only
 
 
@@ -154,9 +172,13 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
 
 
     def getSortField(self):
-        searchRow = self.sortedFieldsList.currentRow()
-        searchItem = self.sortedFieldsList.item(searchRow)
-        self.sortfields.append(searchItem.text())
+        rowcount = self.sortedFieldsList.count()
+        i = 0
+        while i <= rowcount:
+            searchItem = self.sortedFieldsList.item(i)
+            self.sortfields.append(searchItem.text())
+            i += 1
+        print("sort fields from getSortField: ", self.sortfields)    
 
 
     def getComparison(self):
@@ -167,29 +189,58 @@ class QueryViewDlg(QDialog, ui_query_view.Ui_Dialog):
 
 
     def presetQueries(self):
+        """
+        row = self.typeListWidget.currentRow()
+        item = self.typeListWidget.item(row)
+        runThis = item.text()
+        """
+        # if to choose runThis sql, pass to fetch data...
         pass
+
 
     def addSortField(self):
-        pass
+        row = self.availFieldsList.currentRow()
+        item = self.availFieldsList.item(row)
+        self.sortedFieldsList.addItem(item.text() + " (A - Z)")
+
 
     def delSortField(self):
-        pass
+        row = self.sortedFieldsList.currentRow()
+        item = self.sortedFieldsList.item(row)
+        takenField = self.sortedFieldsList.takeItem(item)
+        del takenField
+
 
     def clearSortFields(self):
-        pass
+        self.sortedFieldsList.clear()
+
 
     def ascFieldSort(self):
-        pass
+        row = self.sortedFieldsList.currentRow()
+        item = self.sortedFieldsList.item(row)
+        oldtext = item.text()
+        field = oldtext[:-7].strip()
+        item.setText(field + " (A - Z)")
+
 
     def desFieldSort(self):
-        pass
+        row = self.sortedFieldsList.currentRow()
+        item = self.sortedFieldsList.item(row)
+        oldtext = item.text()
+        field = oldtext[:-7].strip()
+        item.setText(field + " (Z - A)")
+
 
     def add_other_term(self):
         dialog = AddCompDialog()
         if dialog.exec_() == QDialog.Accepted:
-            self.extraSql = dialog.fetchData()
+            tmptable, tmpwheres = dialog.fetchData()
+            self.sqltables.append(tmptable)
+            self.sqlwheres.append(tmpwheres)
         else:
-            self.extraSql = ""    
+            print("Problem with adding that term, did you press cancel?")    
+
+
 
 
 class AddCompDialog(QDialog, ui_add_comparison.Ui_Dialog):
@@ -236,7 +287,7 @@ class AddCompDialog(QDialog, ui_add_comparison.Ui_Dialog):
 
 
 
-def cleanSearchTerm(self, string=None, type_="string"):
+def cleanSearchTerm(string=None, type_="string"):
     """
 
     """
